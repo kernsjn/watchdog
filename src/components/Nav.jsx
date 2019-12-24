@@ -5,20 +5,23 @@ import watchdog from '../assets/watchdog.png'
 const Nav = () => {
   return (
     <Router>
-      <header className="navigation-bar">
-        {/* <nav> */}
+      <nav>
+        <header className="navigation-bar">
+          {' '}
+          <Link to="/">
+            <img id="logo" src={watchdog} />{' '}
+          </Link>
+        </header>
+
         <ul>
-          <li>
-            <Link to="/">
-              <img id="logo" src={watchdog} />{' '}
-            </Link>
+          <li className="nav">
+            <Link to="/punchlist">Punchlist</Link>
           </li>
-          <li>
-            <Link to="/1">Login</Link>
+          <li className="nav">
+            <Link to="/login">Login</Link>
           </li>
         </ul>
-        {/* </nav> */}
-      </header>
+      </nav>
     </Router>
   )
 }
