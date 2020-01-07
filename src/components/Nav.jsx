@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Link } from 'react-router-dom'
 import watchdog from '../assets/watchdog.png'
 
 const Nav = () => {
+
+
   return (
     <Router>
       <nav>
@@ -12,7 +14,6 @@ const Nav = () => {
             <img id="logo" src={watchdog} />{' '}
           </Link>
         </header>
-
         <ul>
           <li className="nav">
             <Link to="/punchlist">Punchlist</Link>

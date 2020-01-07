@@ -3,6 +3,14 @@ import React from 'react'
 const Dashboard = () => {
   return (
     <>
+      <div class="container">
+        <ul class="progressbar">
+          <li class="active">punchlist item</li>
+          <li>pending</li>
+          <li>complete</li>
+          <li>approved</li>
+        </ul>
+      </div>
       <section className="dropdown-section">
         <p className="labels">Facility Name</p>
         <select className="facility">
