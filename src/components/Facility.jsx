@@ -12,6 +12,7 @@ const Facility = () => {
   useEffect(() => {
     getFacilityData()
   }, [])
+  
 
   return (
     <>
