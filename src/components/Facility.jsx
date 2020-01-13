@@ -1,19 +1,36 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
 const Facility = () => {
+  const [facilityData, setFacilityData] = useState([{}])
+
+  const getFacilityData = async () => {
+    const resp = await axios.get('https://localhost:5001/api/Facility')
+    setFacilityData(resp.data)
+    console.log(resp.data)
+  }
+  useEffect(() => {
+    getFacilityData()
+  }, [])
+
   return (
     <>
-      <div>
-        <section className="dropdown-section">
-          <p className="labels">Campus / Facility Name</p>
-          <select className="facility">
-            <option value="facility-1">Facility 1</option>
-            <option value="facility-2">Facility 2</option>
-            <option value="facility-3">Facility 3</option>
-            <option value="facility-4">Facility 4</option>
-          </select>
-        </section>
-      </div>
+      <main>
+        <div>
+          <section className="dropdown-section">
+            <p className="labels">Campus / Facility Name</p>
+            <select className="facility">
+              {facilityData.map((info, id) => {
+                return (
+                  <option value={info.facilityName} key={id}>
+                    {info.facilityName}
+                  </option>
+                )
+              })}
+            </select>
+          </section>
+        </div>
+      </main>
     </>
   )
 }

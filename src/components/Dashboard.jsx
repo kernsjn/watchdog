@@ -3,14 +3,15 @@ import Facility from './Facility'
 import Building from './Building'
 import Scope from './Scope'
 import Responsible from './Responsible'
+import axios from 'axios'
 
 const Dashboard = () => {
   return (
     <>
       <section>
-        <div class="progressbar-container">
-          <ul class="progressbar">
-            <li class="active">punchlist item</li>
+        <div className="progressbar-container">
+          <ul className="progressbar">
+            <li className="active">punchlist item</li>
             <li>pending</li>
             <li>complete</li>
             <li>approved</li>
@@ -33,8 +34,6 @@ const Dashboard = () => {
           </li>
         </ul>
       </section>
-
-      
     </>
   )
 }
