@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Page from './pages/Page'
+import Punchlist from './pages/Punchlist'
 import HomePage from './pages/HomePage'
 import Nav from './components/Nav'
 
@@ -11,7 +11,7 @@ const App = () => {
         <Nav />
         <Switch>
           <Route exact path="/" component={HomePage}></Route>
-          <Route exact path="/punchlist" component={Page}></Route>
+          <Route exact path="/Punchlist" component={Punchlist}></Route>
         </Switch>
       </Router>
     </>
