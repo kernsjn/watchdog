@@ -11,7 +11,7 @@ const App = () => {
         <Nav />
         <Switch>
           <Route exact path="/" component={HomePage}></Route>
-          <Route exact path="/Punchlist" component={Punchlist}></Route>
+          <Route exact path="/punchlist" component={Punchlist}></Route>
         </Switch>
       </Router>
     </>

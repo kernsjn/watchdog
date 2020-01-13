@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Link } from 'react-router-dom'
 import watchdog from '../assets/watchdog.png'
 
 const Nav = () => {
-
-
   return (
     <Router>
       <nav>
@@ -16,7 +14,7 @@ const Nav = () => {
         </header>
         <ul>
           <li className="nav">
-            <Link to="/punchlist">Punchlist</Link>
+            <Link to="./punchlist">Punchlist</Link>
           </li>
           <li className="nav">
             <Link to="/login">Login</Link>

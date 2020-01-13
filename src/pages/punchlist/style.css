@@ -11,25 +11,34 @@ body {
   width: 100%;
 }
 
+.title {
+  text-align: center;
+}
+
 .container {
   display: flex;
   box-sizing: border-box;
-  width: 60%;
+  width: 65%;
+  border-radius: 15;
+  padding: 2rem;
+  color: rgb(87, 87, 87);
+  box-shadow: 0px 4px 16px 0px gray;
+  justify-content: center;
 }
 
 .main-container {
   width: 90%;
   max-width: 1200px;
-  margin: 0 auto;
-  border-radius: 15;
-  color: rgb(87, 87, 87);
-  box-shadow: 0px 4px 16px 0px gray;
+  margin-right: 5rem auto;
 }
-
 
 .flex-left {
   list-style: none;
-  padding: 1rem;
+}
+
+.flex-left label {
+  margin-bottom: 2rem;
+  text-align: left;
 }
 
 .flex-left li {
@@ -37,69 +46,79 @@ body {
 }
 
 .punch-image {
-  height: 10rem;
-  width: 10rem;
+  height: 13rem;
+  width: 13rem;
   text-align: center;
   border: solid 1px;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 1rem;
 }
 
-.flex-outer,
-.flex-inner {
+.flex-right {
   list-style: none;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 50%;
 }
 
-.flex-outer {
+.input-form {
+  height: 5rem;
+  width: 25rem;
+}
+
+.scope {
+  height: 2rem;
+  width: 28rem;
+}
+
+.flex-right {
   max-width: 800px;
   margin: 0 auto;
 }
 
-.flex-outer li,
-.flex-inner {
+.flex-right li {
   align-items: center;
 }
 
-.flex-inner {
-  padding: 0 8px;
-  justify-content: space-between;
-}
-
-.flex-outer > li:not(:last-child) {
+.flex-right > li:not(:last-child) {
   margin-bottom: 20px;
 }
 
-.flex-outer li label,
-.flex-outer li p {
+.flex-left li label,
+.flex-right li label,
+.flex-right li p {
   padding: 8px;
-  font-weight: 300;
-  letter-spacing: 0.09em;
+  font-weight: bolder;
   text-transform: uppercase;
+  color: navy;
 }
 
-.flex-outer > li > label,
-.flex-outer li p {
+.flex-right > li > label,
+.flex-right li p {
   flex: 1 0 120px;
   max-width: 220px;
 }
 
-.flex-outer > li > label + *,
-.flex-inner {
+.flex-right > li > label + * {
   flex: 1 0 220px;
 }
 
-.flex-outer li p {
+.flex-right li p {
   margin: 0;
 }
 
-.flex-outer li input:not([type='checkbox']),
-.flex-outer li textarea {
+.flex-right li input:not([type='text']),
+.flex-right li textarea {
   padding: 15px;
   border: none;
+  columns: '30';
+  width: 25rem;
 }
 
-.flex-outer li button {
+.flex-right li button {
   margin-left: auto;
   padding: 8px 16px;
   border: none;
@@ -108,8 +127,4 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.09em;
   border-radius: 2px;
-}
-
-.flex-inner li {
-  width: 100px;
 }

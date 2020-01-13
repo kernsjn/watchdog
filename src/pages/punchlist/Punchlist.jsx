@@ -6,7 +6,7 @@ const Punchlist = () => {
   const [resetForm, setResetForm] = useState(false)
   return (
     <>
-      <h1 className="directory-title">Add a Punchlist Item</h1>
+      <h1 className="title">Add a Punchlist Item</h1>
       <main className="form-section">
         {resetForm && <Redirect to="/" />}
 
@@ -38,7 +38,7 @@ const Punchlist = () => {
               </ul>
             </div>
             <div className="main-container">
-              <ul className="flex-outer">
+              <ul className="flex-right">
                 <li>
                   <label htmlFor="facility-name">Campus / Facility Name:</label>
                   <input
@@ -56,7 +56,7 @@ const Punchlist = () => {
                     className="input-form"
                     type="text"
                     // value={building}
-                    placeholder="Enter Builidng Name / Number"
+                    placeholder="Enter Building Name / Number"
                   />
                 </li>
                 <li>
@@ -116,27 +116,25 @@ const Punchlist = () => {
                   />
                 </li>
 
-                <ul className="flex-inner">
-                  <li>
-                    <label htmlFor="location-issue">Location of Issue:</label>
-                    <input
-                      className="input-form"
-                      type="text"
-                      // value={issueLocation}
-                      placeholder="What is the location of the issue"
-                    />
-                  </li>
+                <li>
+                  <label htmlFor="location-issue">Location of Issue:</label>
+                  <input
+                    className="input-form"
+                    type="textarea"
+                    // value={issueLocation}
+                    placeholder="What is the location of the issue"
+                  />
+                </li>
 
-                  <li>
-                    <label htmlFor="issue">Description of Issue:</label>
-                    <input
-                      className="input-form"
-                      type="text"
-                      // value={issueDescription}
-                      placeholder="Describe the issue"
-                    />
-                  </li>
-                </ul>
+                <li>
+                  <label htmlFor="issue">Description of Issue:</label>
+                  <input
+                    className="input-form"
+                    type="textarea"
+                    // value={issueDescription}
+                    placeholder="Describe the issue"
+                  />
+                </li>
                 <li className="button">
                   <button className="submit-issue" type="submit">
                     Submit
