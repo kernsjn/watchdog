@@ -274,3 +274,7 @@ nav a {
     box-shadow: 0px 4px 16px 0px gray;
   }
 }
+
+.progressbar-container {
+  width: 100%;
+}
