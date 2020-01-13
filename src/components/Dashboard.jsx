@@ -16,7 +16,9 @@ const Dashboard = () => {
             <li>approved</li>
           </ul>
         </div>
-        <div>
+      </section>
+      <section className="dropdown-list">
+        <ul id="dropdown-list">
           <li>
             <Facility />
           </li>
@@ -29,7 +31,7 @@ const Dashboard = () => {
           <li>
             <Responsible />
           </li>
-        </div>
+        </ul>
       </section>
     </>
   )
