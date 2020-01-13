@@ -5,7 +5,7 @@ const Facility = () => {
     <>
       <div>
         <section className="dropdown-section">
-          <p className="labels">Facility Name</p>
+          <p className="labels">Campus / Facility Name</p>
           <select className="facility">
             <option value="facility-1">Facility 1</option>
             <option value="facility-2">Facility 2</option>

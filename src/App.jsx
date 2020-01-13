@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Punchlist from './pages/Punchlist'
+import Punchlist from './pages/punchlist/Punchlist'
 import HomePage from './pages/HomePage'
 import Nav from './components/Nav'
 
