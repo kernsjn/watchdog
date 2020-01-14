@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import Facility from './Facility'
-import Building from './Building'
-import Scope from './Scope'
-import Assigned from './Assigned'
-import CurrentList from './CurrentList'
-import ProgressBar from './ProgressBar'
+import Facility from '../components/Facility'
+import Building from '../components/Building'
+import Scope from '../components/Scope'
+import Assigned from '../components/Assigned'
+import CurrentList from '../components/CurrentList'
+import ProgressBar from '../components/ProgressBar'
 import axios from 'axios'
 
 const Dashboard = () => {
