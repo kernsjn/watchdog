@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Facility from './Facility'
 import Building from './Building'
 import Scope from './Scope'
-import Responsible from './Responsible'
+import Assigned from './Assigned'
 import CurrentList from './CurrentList'
 import ProgressBar from './ProgressBar'
 import axios from 'axios'
@@ -34,7 +34,7 @@ const Dashboard = () => {
             <Scope />
           </li>
           <li>
-            <Responsible />
+            <Assigned />
           </li>
         </ul>
       </section>

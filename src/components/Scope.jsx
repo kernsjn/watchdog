@@ -1,28 +1,36 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
 const Scope = () => {
+  const [scopeData, setScopeData] = useState([])
+
+  const getScopeData = async () => {
+    const resp = await axios.get('https://localhost:5001/api/scope/')
+    setScopeData(resp.data)
+    console.log(resp.data)
+  }
+  useEffect(() => {
+    getScopeData()
+  }, [])
+
   return (
     <>
-      <div>
-        <section className="dropdown-section">
-          <p className="labels-2">Scope of Work</p>
-          <select className="category">
-            <option value="all">All</option>
-            <option value="site">Site</option>
-            <option value="roof">Fixed System: Roof</option>
-            <option value="interior">Fixed System: Building Interior</option>
-            <option value="exterior">Fixed System: Building Exterior</option>
-            <option value="hvac">Operating System: HVAC</option>
-            <option value="electrical">Operating System: Electrical</option>
-            <option value="plumbing">Operating System: Plumbing</option>
-            <option value="fire">Operating System: Fire / Life Safety</option>
-            <option value="kitchen">Operating System: Kitchen Equipment</option>
-            <option value="elevator">
-              Operating System: Vertical Transport
-            </option>
-          </select>
-        </section>
-      </div>
+      <main>
+        <div>
+          <section className="dropdown-section">
+            <p className="labels">Scope of Work</p>
+            <select className="category">
+              {scopeData.map((info, id) => {
+                return (
+                  <option value={info.description} key={id}>
+                    {info.description}
+                  </option>
+                )
+              })}
+            </select>
+          </section>
+        </div>
+      </main>
     </>
   )
 }
