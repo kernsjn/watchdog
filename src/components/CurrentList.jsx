@@ -5,7 +5,7 @@ const CurrentList = () => {
     <>
       
       <table id="active-list">
-      <caption>Punchlist</caption>
+      <caption>Active Punchlist</caption>
         <th>Facility Name</th>
         <th>Building Name</th>
         <th>Scope</th>

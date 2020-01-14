@@ -3,6 +3,7 @@ import Facility from './Facility'
 import Building from './Building'
 import Scope from './Scope'
 import Responsible from './Responsible'
+import CurrentList from './CurrentList'
 import axios from 'axios'
 
 const Dashboard = () => {
@@ -34,6 +35,7 @@ const Dashboard = () => {
           </li>
         </ul>
       </section>
+      <CurrentList />
     </>
   )
 }

@@ -14,11 +14,18 @@ body {
 /* regular css */
 
 #logo {
-  width: 150px;
+  width: 320px;
 }
 
 select {
   text-align-last: center;
+}
+
+caption {
+  background: goldenrod;
+  padding: 1rem;
+  font-size: 1.5rem;
+  text-transform: capitalize;
 }
 
 header {
@@ -27,6 +34,7 @@ header {
   text-align: left;
   margin-top: 0.6rem;
   margin-left: 0.5rem;
+  align-self: center;
 }
 
 nav {
@@ -41,6 +49,8 @@ nav {
 nav ul {
   display: flex;
   margin-right: 0.5rem;
+  justify-content: center;
+  align-self: center;
 }
 
 nav li {
@@ -52,8 +62,9 @@ nav a {
   text-decoration: none;
   font-weight: bolder;
   text-align: right;
-  font-size: 12px;
+  font-size: 20px;
   text-transform: uppercase;
+  padding: 1rem;
 }
 
 .nav {
@@ -62,43 +73,51 @@ nav a {
   text-align: right;
 }
 
+.nav-line {
+  background-color: navy;
+  padding: 0.5rem;
+}
+
 .container {
   width: 600px;
   margin: 35px auto;
 }
 .progressbar {
   counter-reset: step;
+  margin-top: 4rem;
 }
 .progressbar li {
   list-style-type: none;
   width: 25%;
   float: left;
-  font-size: 12px;
+  font-size: 16px;
+  font-weight: 700;
   position: relative;
   text-align: center;
   text-transform: uppercase;
   color: #7d7d7d;
 }
 .progressbar li:before {
-  width: 30px;
-  height: 30px;
+  width: 100px;
+  height: 100px;
   content: counter(step);
   counter-increment: step;
-  line-height: 30px;
-  border: 2px solid #7d7d7d;
+  line-height: 100px;
+  border: 4px solid hsl(0, 0%, 49%);
   display: block;
   text-align: center;
   margin: 0 auto 10px auto;
   border-radius: 50%;
   background-color: white;
+  font-size: 3rem;
 }
 .progressbar li:after {
   width: 100%;
-  height: 2px;
+  height: 4px;
   content: '';
   position: absolute;
   background-color: #7d7d7d;
-  top: 15px;
+  top: 50px;
   left: -50%;
   z-index: -1;
 }
@@ -164,11 +183,21 @@ nav a {
     background-color: rgb(215, 215, 215);
   }
 
+  nav a {
+    font-size: 12px;
+    padding: 0rem;
+  }
+
+  #logo {
+    width: 150px;
+  }
+
   .container {
     display: none;
   }
 
   .progressbar {
+    margin-top: 2rem;
     display: none;
   }
 
@@ -192,7 +221,7 @@ nav a {
   }
 
   .facility {
-    background-color: rgb(186, 186, 186);
+    background-color: rgb(216, 216, 216);
     width: 13rem;
     border: solid 1px gray;
     justify-content: center;
@@ -205,7 +234,7 @@ nav a {
   }
 
   .building {
-    background-color: rgb(186, 186, 186);
+    background-color: rgb(216, 216, 216);
     width: 13rem;
     border: solid 1px gray;
     justify-content: center;
@@ -217,7 +246,7 @@ nav a {
     box-shadow: 0px 4px 16px 0px gray;
   }
   .category {
-    background-color: rgb(186, 186, 186);
+    background-color: rgb(216, 216, 216);
     width: 13rem;
     border: solid 1px gray;
     justify-content: center;
@@ -230,7 +259,7 @@ nav a {
   }
 
   .ball-in-court {
-    background-color: rgb(186, 186, 186);
+    background-color: rgb(216, 216, 216);
     width: 13rem;
     border: solid 1px gray;
     justify-content: center;
@@ -244,9 +273,9 @@ nav a {
   }
   #active-list {
     border-collapse: collapse;
-    width: 80%;
-    margin-right: 10%;
-    margin-left: 10%;
+    width: 90%;
+    margin-right: 5%;
+    margin-left: 5%;
     margin-top: 3rem;
   }
 
@@ -282,12 +311,19 @@ nav a {
 
 @media screen and (min-width: 768px) {
   body {
-    background-color: rgb(215, 215, 215);
+    background-color: rgb(235, 235, 235);
+  }
+
+  nav {
+    height: 100px;
   }
 
   .dropdown-list {
-    margin-top: 10rem;
+    margin-top: 18rem;
     list-style: none;
+    width: 86%;
+    margin-left: 7%;
+    margin-right: 7%;
   }
 
   #dropdown-list {
@@ -302,61 +338,63 @@ nav a {
     margin-top: 2rem;
     text-transform: uppercase;
     color: navy;
+    text-align: center;
   }
 
   .labels-2 {
     margin-top: 2rem;
     text-transform: uppercase;
     color: navy;
+    text-align: center;
   }
 
   .facility {
-    background-color: rgb(186, 186, 186);
-    width: 13rem;
+    background-color: rgb(216, 216, 216);
+    width: 18rem;
     border: solid 1px gray;
     justify-content: center;
     text-align: center;
     font-size: 1rem;
-    height: 2rem;
+    height: 2.5rem;
     border-radius: 15;
     color: rgb(87, 87, 87);
     box-shadow: 0px 4px 16px 0px gray;
   }
 
   .building {
-    background-color: rgb(186, 186, 186);
-    width: 13rem;
+    background-color: rgb(216, 216, 216);
+    width: 18rem;
     border: solid 1px gray;
     justify-content: center;
     text-align: center;
     font-size: 1rem;
-    height: 2rem;
+    height: 2.5rem;
     border-radius: 15;
     color: rgb(87, 87, 87);
     box-shadow: 0px 4px 16px 0px gray;
   }
   .category {
-    background-color: rgb(186, 186, 186);
-    width: 13rem;
+    background-color: rgb(216, 216, 216);
+    width: 18rem;
     border: solid 1px gray;
     justify-content: center;
     text-align: center;
     font-size: 1rem;
-    height: 2rem;
+    height: 2.5rem;
     border-radius: 15;
     color: rgb(87, 87, 87);
     box-shadow: 0px 4px 16px 0px gray;
   }
 
   .ball-in-court {
-    background-color: rgb(186, 186, 186);
-    width: 13rem;
+    background-color: rgb(216, 216, 216);
+    width: 18rem;
     border: solid 1px gray;
     justify-content: center;
     align-content: center;
     text-align: center;
     font-size: 1rem;
-    height: 2rem;
+    height: 2.5rem;
     border-radius: 15;
     color: rgb(87, 87, 87);
     box-shadow: 0px 4px 16px 0px gray;
