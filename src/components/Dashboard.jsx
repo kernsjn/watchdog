@@ -1,31 +1,34 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Facility from './Facility'
 import Building from './Building'
 import Scope from './Scope'
 import Responsible from './Responsible'
 import CurrentList from './CurrentList'
+import ProgressBar from './ProgressBar'
 import axios from 'axios'
 
 const Dashboard = () => {
+  const [selectedFacility, setSelectedFacility] = useState()
+
+  const getOneFacility = async () => {
+    const resp = await axios.get(`https://localhost:5001/api/Facility`)
+    setSelectedFacility(resp.data)
+  }
+
+  useEffect(() => {
+    getOneFacility()
+  }, [])
+
   return (
     <>
-      <section>
-        <div className="progressbar-container">
-          <ul className="progressbar">
-            <li className="active">punchlist item</li>
-            <li>pending</li>
-            <li>complete</li>
-            <li>approved</li>
-          </ul>
-        </div>
-      </section>
+      <ProgressBar />
       <section className="dropdown-list">
         <ul id="dropdown-list">
           <li>
-            <Facility />
+            <Facility setSelectedFacility={setSelectedFacility} />
           </li>
           <li>
-            <Building />
+            <Building selectedFacility={selectedFacility} />
           </li>
           <li>
             <Scope />

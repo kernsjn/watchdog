@@ -18,12 +18,12 @@ body {
 .container {
   display: flex;
   box-sizing: border-box;
-  width: 65%;
+  width: 75%;
   border-radius: 15;
   padding: 2rem;
   color: rgb(87, 87, 87);
   box-shadow: 0px 4px 16px 0px gray;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .main-container {
@@ -75,7 +75,7 @@ body {
 }
 
 .flex-right {
-  max-width: 800px;
+  width: 50%;
   margin: 0 auto;
 }
 
