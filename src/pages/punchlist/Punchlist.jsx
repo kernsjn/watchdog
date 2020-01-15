@@ -1,9 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 import style from './style.css'
+import PunchAssigned from './PunchAssigned'
+import PunchFacility from './PunchFacility'
+import PunchBuilding from './PunchBuilding'
+import PunchScope from './PunchScope'
 
 const Punchlist = () => {
   const [resetForm, setResetForm] = useState(false)
+  const [selectedFacility, setSelectedFacility] = useState()
+
+  const getOneFacility = async () => {
+    const resp = await axios.get(`https://localhost:5001/api/Facility`)
+    setSelectedFacility(resp.data)
+  }
+
+  useEffect(() => {
+    getOneFacility()
+  }, [])
+
   return (
     <>
       <main className="form-section">
@@ -13,9 +29,7 @@ const Punchlist = () => {
           className="add-punchlist-item"
           // onSubmit={submitData}
         >
-          
           <div className="container">
-          
             <div className="left-section">
               <ul className="flex-left">
                 <li>
@@ -41,75 +55,18 @@ const Punchlist = () => {
             <div className="right-section">
               <ul className="flex-right">
                 <li>
-                  <label htmlFor="facility">Campus / Facility:</label>
-                  <select
-                    className="input-form"
-                    type="text"
-                    // value={facility}
-                    placeholder="Choose for Campus / Facility"
-                  >
-                    <option value="facilityName">Facility Location</option>
-                  </select>
+                  <PunchFacility setSelectedFacility={setSelectedFacility} />
                 </li>
 
                 <li>
-                  <label htmlFor="building">Building:</label>
-                  <select
-                    className="input-form"
-                    type="text"
-                    // value={building}
-                    placeholder="Choose for Building"
-                  >
-                    <option value="buildingName">Building</option>
-                  </select>
+                  <PunchBuilding selectedFacility={selectedFacility} />
                 </li>
                 <li>
-                  <label htmlFor="scope">Scope</label>
-                  <select
-                    className="input-form"
-                    type="text"
-                    // value={scope}
-                    placeholder="Choose the Scope"
-                  >
-                    <option value="site">Site</option>
-                    <option value="roof">Fixed System: Roof</option>
-                    <option value="interior">
-                      Fixed System: Building Interior
-                    </option>
-                    <option value="exterior">
-                      Fixed System: Building Exterior
-                    </option>
-                    <option value="hvac">Operating System: HVAC</option>
-                    <option value="electrical">
-                      Operating System: Electrical
-                    </option>
-                    <option value="plumbing">Operating System: Plumbing</option>
-                    <option value="fire">
-                      Operating System: Fire / Life Safety
-                    </option>
-                    <option value="kitchen">
-                      Operating System: Kitchen Equipment
-                    </option>
-                    <option value="elevator">
-                      Operating System: Vertical Transport
-                    </option>
-                    <option value="other">Other</option>
-                  </select>
+                  <PunchScope />
                 </li>
 
                 <li>
-                  <label htmlFor="assignee">Ball-in-Court:</label>
-                  <select
-                    className="input-form"
-                    type="text"
-                    // value={assignee}
-                    placeholder="Choose your Assignment"
-                  >
-                    <option value="owner">Owner</option>
-                    <option value="architect">Architect</option>
-                    <option value="contractor">Contractor</option>
-                    <option value="subcontractor">Subcontractor</option>
-                  </select>
+                  <PunchAssigned />
                 </li>
 
                 <li>

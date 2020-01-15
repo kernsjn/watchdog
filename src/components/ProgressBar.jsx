@@ -7,10 +7,10 @@ const ProgressBar = () => {
         <section>
           <div className="progressbar-container">
             <ul className="progressbar">
-              <li className="active">punchlist item</li>
-              <li>pending</li>
-              <li>complete</li>
-              <li>approved</li>
+              <li className="active">pending</li>
+              <li>open</li>
+              <li>in review</li>
+              <li>closed</li>
             </ul>
           </div>
         </section>
