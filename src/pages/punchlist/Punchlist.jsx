@@ -6,16 +6,17 @@ const Punchlist = () => {
   const [resetForm, setResetForm] = useState(false)
   return (
     <>
-      <h1 className="title">Add a Punchlist Item</h1>
       <main className="form-section">
         {resetForm && <Redirect to="/" />}
-
+        <div className="title">Add a Punchlist Item</div>
         <form
           className="add-punchlist-item"
           // onSubmit={submitData}
         >
+          
           <div className="container">
-            <div className="left-container">
+          
+            <div className="left-section">
               <ul className="flex-left">
                 <li>
                   <label htmlFor="issue-image">Issue Image:</label>
@@ -37,27 +38,30 @@ const Punchlist = () => {
                 </li>
               </ul>
             </div>
-            <div className="main-container">
+            <div className="right-section">
               <ul className="flex-right">
                 <li>
-                  <label htmlFor="facility-name">Campus / Facility Name:</label>
-                  <input
+                  <label htmlFor="facility">Campus / Facility:</label>
+                  <select
                     className="input-form"
                     type="text"
                     // value={facility}
-                    placeholder="Enter Campus / Facility Name"
-                  />
+                    placeholder="Choose for Campus / Facility"
+                  >
+                    <option value="facilityName">Facility Location</option>
+                  </select>
                 </li>
+
                 <li>
-                  <label htmlFor="building-number">
-                    Building Name / Number:
-                  </label>
-                  <input
+                  <label htmlFor="building">Building:</label>
+                  <select
                     className="input-form"
                     type="text"
                     // value={building}
-                    placeholder="Enter Building Name / Number"
-                  />
+                    placeholder="Choose for Building"
+                  >
+                    <option value="buildingName">Building</option>
+                  </select>
                 </li>
                 <li>
                   <label htmlFor="scope">Scope</label>
@@ -89,6 +93,7 @@ const Punchlist = () => {
                     <option value="elevator">
                       Operating System: Vertical Transport
                     </option>
+                    <option value="other">Other</option>
                   </select>
                 </li>
 
@@ -106,21 +111,27 @@ const Punchlist = () => {
                     <option value="subcontractor">Subcontractor</option>
                   </select>
                 </li>
+
                 <li>
-                  <label htmlFor="requestor">Requestor</label>
-                  <input
+                  <label htmlFor="requestor">Requestor:</label>
+                  <select
                     className="input-form"
                     type="text"
                     // value={requestor}
-                    placeholder="Your Name"
-                  />
+                    placeholder="Your Role"
+                  >
+                    <option value="owner">Owner</option>
+                    <option value="architect">Architect</option>
+                    <option value="contractor">Contractor</option>
+                    <option value="subcontractor">Subcontractor</option>
+                  </select>
                 </li>
 
                 <li>
                   <label htmlFor="location-issue">Location of Issue:</label>
                   <input
-                    className="input-form"
-                    type="textarea"
+                    className="input-form-2"
+                    type="text"
                     // value={issueLocation}
                     placeholder="What is the location of the issue"
                   />
@@ -129,8 +140,8 @@ const Punchlist = () => {
                 <li>
                   <label htmlFor="issue">Description of Issue:</label>
                   <input
-                    className="input-form"
-                    type="textarea"
+                    className="input-form-2"
+                    type="text"
                     // value={issueDescription}
                     placeholder="Describe the issue"
                   />
