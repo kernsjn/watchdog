@@ -21,10 +21,14 @@ const PunchBuilding = props => {
         <div>
           <section className="dropdown-section">
             <p className="labels">Building:</p>
-            <select className="building">
+            <select
+              className="building"
+              onChange={e => props.updateBuildingId(e.target.value)}
+            >
+              <option value="">SELECT A FACILITY</option>
               {punchBuildingData.map((info, id) => {
                 return (
-                  <option value={info.buildingName} key={id}>
+                  <option value={info.id} key={id}>
                     {info.buildingName}
                   </option>
                 )

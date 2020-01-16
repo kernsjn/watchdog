@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-const PunchScope = () => {
+const PunchScope = props => {
   const [punchScopeData, setPunchScopeData] = useState([])
 
   const getPunchScopeData = async () => {
@@ -18,11 +18,15 @@ const PunchScope = () => {
       <main>
         <div>
           <section className="dropdown-section">
-            <p className="labels">Scope of Work</p>
-            <select className="category">
+            <p className="labels">Scope of Work:</p>
+            <select
+              className="category"
+              onChange={e => props.prepPunchScope(e.target.value)}
+            >
+              <option value="">SELECT YOUR SCOPE</option>
               {punchScopeData.map((info, id) => {
                 return (
-                  <option value={info.description} key={id}>
+                  <option value={info.id} key={id}>
                     {info.description}
                   </option>
                 )

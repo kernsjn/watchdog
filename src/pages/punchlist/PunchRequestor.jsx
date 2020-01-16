@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-const PunchRequestor = () => {
+const PunchRequestor = props => {
   const [punchRequestorData, setPunchRequestorData] = useState([])
 
   const getPunchRequestorData = async () => {
@@ -19,10 +19,14 @@ const PunchRequestor = () => {
         <div>
           <section className="dropdown-section">
             <p className="labels-2">Requested By:</p>
-            <select className="ball-in-court">
+            <select
+              className="ball-in-court"
+              onChange={e => props.prepPunchRequestor(e.target.value)}
+            >
+              <option value="">SELECT YOUR ROLE</option>
               {punchRequestorData.map((info, id) => {
                 return (
-                  <option value={info.requestRole} key={id}>
+                  <option value={info.id} key={id}>
                     {info.requestRole}
                   </option>
                 )
