@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-const Scope = () => {
+const Scope = props => {
   const [scopeData, setScopeData] = useState([])
 
   const getScopeData = async () => {
@@ -19,10 +19,13 @@ const Scope = () => {
         <div>
           <section className="dropdown-section">
             <p className="labels">Scope of Work</p>
-            <select className="category">
+            <select
+              className="category"
+              onChange={e => props.prepDashScope(e.target.value)}
+            >
               {scopeData.map((info, id) => {
                 return (
-                  <option value={info.description} key={id}>
+                  <option value={info.id} key={id}>
                     {info.description}
                   </option>
                 )

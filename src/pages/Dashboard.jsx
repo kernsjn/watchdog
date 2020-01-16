@@ -7,8 +7,9 @@ import CurrentList from '../components/CurrentList'
 import ProgressBar from '../components/ProgressBar'
 import axios from 'axios'
 
-const Dashboard = () => {
+const Dashboard = props => {
   const [selectedFacility, setSelectedFacility] = useState()
+  const [data, setData] = useState()
 
   const getOneFacility = async () => {
     const resp = await axios.get(`https://localhost:5001/api/Facility`)
@@ -25,16 +26,54 @@ const Dashboard = () => {
       <section className="dropdown-list">
         <ul id="dropdown-list">
           <li>
-            <Facility setSelectedFacility={setSelectedFacility} />
+            <Facility
+              setSelectedFacility={selectFacility => {
+                setSelectedFacility(selectFacility)
+                setData(prev => {
+                  return {
+                    ...prev,
+                    facilityId: parseInt(selectFacility),
+                  }
+                })
+              }}
+            />
           </li>
           <li>
-            <Building selectedFacility={selectedFacility} />
+            <Building
+              selectedFacility={selectedFacility}
+              updateBuildingId={buildingId => {
+                setData(prev => {
+                  return {
+                    ...prev,
+                    buildingId: parseInt(buildingId),
+                  }
+                })
+              }}
+            />
           </li>
           <li>
-            <Scope />
+            <Scope
+              prepDashScope={scopeId => {
+                setData(prev => {
+                  return {
+                    ...prev,
+                    scopeId: parseInt(scopeId),
+                  }
+                })
+              }}
+            />
           </li>
           <li>
-            <Assigned />
+            <Assigned
+              prepDashAssigned={assignId => {
+                setData(prev => {
+                  return {
+                    ...prev,
+                    assignId: parseInt(assignId),
+                  }
+                })
+              }}
+            />
           </li>
         </ul>
       </section>
