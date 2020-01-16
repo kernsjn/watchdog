@@ -8,20 +8,23 @@ import PunchBuilding from './PunchBuilding'
 import PunchScope from './PunchScope'
 import PunchRequestor from './PunchRequestor'
 
+
 const Punchlist = () => {
   const [resetForm, setResetForm] = useState(false)
   const [selectedFacility, setSelectedFacility] = useState()
   const [data, setData] = useState({})
 
+  // const getOneFacility = async () => {
+  //   const resp = await axios.get(`https://localhost:5001/api/Facility`)
+  //   setSelectedFacility(resp.data)
+  // }
+
+  // useEffect(() => {
+  //   getOneFacility()
+  // }, [])
 
   const submitData = e => {
     e.preventDefault()
-    setData(prevData => {
-      return {
-        ...prevData,
-        [e.target.name]: e.target.value,
-      }
-    })
     console.log(data)
   }
 
@@ -32,8 +35,30 @@ const Punchlist = () => {
         <div className="title">Add a Punchlist Item</div>
         <form className="add-punchlist-item" onSubmit={submitData}>
           <div className="container">
-            <div className="lt-section">
-              <ul className="flex-lt">
+            <div className="left-section">
+              <ul className="flex-left">
+                <li>
+                  <label htmlFor="issue-image">Issue Image:</label>
+                  <input
+                    className="punch-image"
+                    type="text"
+                    // value={issueImage}
+                    placeholder="Upload Image"
+                  />
+                </li>
+                <li>
+                  <label htmlFor="resolution-image">Resolution Image:</label>
+                  <input
+                    className="punch-image"
+                    type="text"
+                    // value={resolutionImage}
+                    placeholder="Upload Image"
+                  />
+                </li>
+              </ul>
+            </div>
+            <div className="right-section">
+              <ul className="flex-right">
                 <li>
                   <PunchFacility setSelectedFacility={setSelectedFacility} />
                 </li>
@@ -53,23 +78,6 @@ const Punchlist = () => {
                   <PunchRequestor />
                 </li>
 
-              </ul>
-            </div>
-
-            <div className="rt-section">
-              <ul className="flex-rt">
-                <li className="punch-image-list">
-                  <label className="image-label" htmlFor="issue-image">
-                    Issue Image:
-                  </label>
-                  <br />
-                  <input
-                    className="punch-image"
-                    type="text"
-                    // value={issueImage}
-                    placeholder="Upload Image"
-                  />
-                </li>
                 <li>
                   <label htmlFor="location-issue">Location of Issue:</label>
                   <input
@@ -85,6 +93,7 @@ const Punchlist = () => {
                     // })}
                   />
                 </li>
+
                 <li>
                   <label htmlFor="issue">Description of Issue:</label>
                   <input

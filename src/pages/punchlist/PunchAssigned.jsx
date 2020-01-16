@@ -22,8 +22,8 @@ const PunchAssigned = () => {
             <select className="ball-in-court">
               {punchAssignedData.map((info, id) => {
                 return (
-                  <option value={info.role} key={id}>
-                    {info.role}
+                  <option value={info.assignRole} key={id}>
+                    {info.assignRole}
                   </option>
                 )
               })}

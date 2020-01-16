@@ -1,0 +1,38 @@
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+
+const PunchRequestor = () => {
+  const [punchRequestorData, setPunchRequestorData] = useState([])
+
+  const getPunchRequestorData = async () => {
+    const resp = await axios.get('https://localhost:5001/api/requestor/')
+    setPunchRequestorData(resp.data)
+    console.log(resp.data)
+  }
+  useEffect(() => {
+    getPunchRequestorData()
+  }, [])
+
+  return (
+    <>
+      <main>
+        <div>
+          <section className="dropdown-section">
+            <p className="labels-2">Requested By:</p>
+            <select className="ball-in-court">
+              {punchRequestorData.map((info, id) => {
+                return (
+                  <option value={info.requestRole} key={id}>
+                    {info.requestRole}
+                  </option>
+                )
+              })}
+            </select>
+          </section>
+        </div>
+      </main>
+    </>
+  )
+}
+
+export default PunchRequestor

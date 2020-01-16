@@ -13,7 +13,6 @@ body {
 
 .form-section {
   position: absolute;
-
   display: flex;
   flex-direction: column;
   margin-left: 25%;
@@ -50,42 +49,56 @@ body {
   margin-top: 0rem;
 }
 
-.right-section {
+.lt-section {
   margin-left: 0.25rem;
-  align-content: center;
-  padding: 2rem;
+  justify-content: center;
+  padding: 1rem;
 }
 
-.left-section {
-  align-content: center;
-  padding: 2rem;
+.rt-section {
+  justify-content: center;
+  padding: 1rem;
 }
 
-.flex-left {
+.flex-rt {
   list-style: none;
-  margin: space-evenly;
+  padding-inline-start: 0rem;
 }
 
-.flex-left label {
+.flex-rt label {
   text-align: left;
 }
 
-.flex-left li {
+.flex-rt li {
   margin-bottom: 2rem;
 }
 
 .punch-image {
-  height: 13rem;
-  width: 13rem;
+  height: 9rem;
+  width: 9rem;
   text-align: center;
-  border: solid 0.5px rgb(170, 170, 170);
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
   padding: 1rem;
   border-radius: 75;
+  border: solid 1px gray;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  font-size: 1rem;
+  color: rgb(87, 87, 87);
+  box-shadow: 0px 4px 16px 0px gray;
+  margin: auto;
+  display: block;
 }
 
-.flex-right {
+.image-label {
+  text-align: center;
+  width: 100%;
+  margin-left: 6rem;
+}
+
+.flex-lt {
   list-style: none;
   padding: 0;
   display: flex;
@@ -94,63 +107,77 @@ body {
 }
 
 .input-form {
-  height: 2rem;
-  width: 18rem;
+  height: 2.5rem;
+  width: 100%;
+  text-align: center;
+  border: solid 1px gray;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  font-size: 1rem;
+  color: rgb(87, 87, 87);
+  box-shadow: 0px 4px 16px 0px gray;
 }
 
 .input-form-2 {
-  height: 5rem;
-  width: 18rem;
-  border-radius: 75;
+  height: 5.5rem;
+  width: 100%;
+  border: solid 1px gray;
+  justify-content: center;
+  align-content: center;
   text-align: center;
+  font-size: 1rem;
+  color: rgb(87, 87, 87);
+  box-shadow: 0px 4px 16px 0px gray;
 }
 
-.flex-right {
-  width: 50%;
+.flex-lt {
   margin: 0 auto;
 }
 
-.flex-right li {
+.flex-lt li {
   align-items: center;
 }
 
-.flex-right > li:not(:last-child) {
+.flex-lt > li:not(:last-child) {
   margin-bottom: 20px;
 }
 
-.flex-left li label,
-.flex-right li label,
-.flex-right li p {
+.flex-rt li label,
+.flex-lt li label,
+.flex-lt li p {
   padding: 8px;
   font-weight: bolder;
   text-transform: uppercase;
   color: navy;
 }
 
-.flex-right > li > label,
-.flex-right li p {
+.flex-lt > li > label,
+.flex-lt li p {
   flex: 1 0 120px;
   max-width: 220px;
 }
 
-.flex-right > li > label + * {
+.flex-lt > li > label + * {
   flex: 1 0 220px;
 }
 
-.flex-right li p {
+.flex-lt li p {
   margin: 0;
 }
 
-.flex-right li input:not([type='text']),
-.flex-right li textarea {
+.flex-lt li input:not([type='text']),
+.flex-lt li textarea {
   padding: 15px;
   border: none;
   columns: '30';
   width: 25rem;
 }
 
-.flex-right li button {
+.flex-rt li button {
   margin-left: auto;
+  justify-content: center;
+  align-self: center;
   padding: 8px 16px;
   border: none;
   background: #333;
@@ -159,3 +186,5 @@ body {
   letter-spacing: 0.09em;
   border-radius: 2px;
 }
+
+
