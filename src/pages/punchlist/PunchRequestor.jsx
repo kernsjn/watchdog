@@ -23,7 +23,7 @@ const PunchRequestor = props => {
               className="ball-in-court"
               onChange={e => props.prepPunchRequestor(e.target.value)}
             >
-              <option value="">SELECT YOUR ROLE</option>
+              <option value=""></option>
               {punchRequestorData.map((info, id) => {
                 return (
                   <option value={info.id} key={id}>

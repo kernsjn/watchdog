@@ -23,7 +23,7 @@ const PunchScope = props => {
               className="category"
               onChange={e => props.prepPunchScope(e.target.value)}
             >
-              <option value="">SELECT YOUR SCOPE</option>
+              <option value=""></option>
               {punchScopeData.map((info, id) => {
                 return (
                   <option value={info.id} key={id}>

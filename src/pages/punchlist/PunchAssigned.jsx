@@ -23,7 +23,7 @@ const PunchAssigned = props => {
               className="ball-in-court"
               onChange={e => props.prepPunchAssigned(e.target.value)}
             >
-              <option value="">SELECT TO ASSIGN WORK</option>
+              <option value=""></option>
               {punchAssignedData.map((info, id) => {
                 return (
                   <option value={info.id} key={id}>

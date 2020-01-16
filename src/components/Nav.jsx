@@ -14,10 +14,10 @@ const Nav = () => {
         </header>
         <ul>
           <li className="nav">
-            <Link to="/punchlist">Punchlist</Link>
+            <Link to="/punchlist">Add Item</Link>
           </li>
           <li className="nav">
-            <Link to="/">Login</Link>
+            <Link to="/">Home</Link>
           </li>
         </ul>
       </nav>

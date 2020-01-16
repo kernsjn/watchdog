@@ -25,7 +25,7 @@ const PunchBuilding = props => {
               className="building"
               onChange={e => props.updateBuildingId(e.target.value)}
             >
-              <option value="">SELECT A FACILITY</option>
+             <option value=""></option>
               {punchBuildingData.map((info, id) => {
                 return (
                   <option value={info.id} key={id}>
