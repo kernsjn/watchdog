@@ -4,15 +4,19 @@ const CurrentList = () => {
   return (
     <>
       <main>
-        <body>
-          <table id="active-list">
-            <caption>Active Punchlist</caption>
+        <table id="active-list">
+          <caption>Active Punchlist</caption>
 
-            <th>Facility Name</th>
-            <th>Status</th>
-            <th>Building Name</th>
-            <th>Scope</th>
-            <th>Ball-in-Court</th>
+          <thead>
+            <tr>
+              <th>Facility Name</th>
+              <th>Status</th>
+              <th>Building Name</th>
+              <th>Scope</th>
+              <th>Ball-in-Court</th>
+            </tr>
+          </thead>
+          <tbody>
             <tr>
               <td>Facility Name</td>
               <td>
@@ -69,8 +73,8 @@ const CurrentList = () => {
               <td>Scope</td>
               <td>Ball-in-Court</td>
             </tr>
-          </table>
-        </body>
+          </tbody>
+        </table>
       </main>
     </>
   )
