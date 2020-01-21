@@ -5,7 +5,9 @@ const Building = props => {
   const [buildingData, setBuildingData] = useState([{}])
 
   const getBuildingData = async () => {
-    const resp = await axios.get('https://localhost:5001/api/Building/' + props.selectedFacility)
+    const resp = await axios.get(
+      'https://localhost:5001/api/Building/' + props.selectedFacility
+    )
     setBuildingData(resp.data)
     console.log(resp.data)
   }
@@ -19,10 +21,14 @@ const Building = props => {
         <div>
           <section className="dropdown-section">
             <p className="labels">Building Name / Number</p>
-            <select className="building">
+            <select
+              className="building"
+              onChange={e => props.updateBuildingId(e.target.value)}
+            >
+              <option value="">SELECT A BUILDING</option>
               {buildingData.map((info, id) => {
                 return (
-                  <option value={info.buildingName} key={id}>
+                  <option value={info.id} key={id}>
                     {info.buildingName}
                   </option>
                 )

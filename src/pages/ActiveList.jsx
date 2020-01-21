@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import ActiveList from '../pages/ActiveList'
+import List from '../components/List'
+import { Link } from 'react-router-dom'
 
-const CurrentList = props => {
-  const [activeList, setActiveList] = useState([])
-  const [searchTerm, setSearchTerm] = useState()
+const ActiveList = () => {
+  const [data, setData] = useState([])
 
   const getActiveList = async () => {
-    const resp = await axios.get(
-      'https://localhost:5001/api/PunchListItem/list'
-    )
-    setActiveList(resp.activeList)
-    console.log(activeList)
+    const resp = await axios.get(`https://localhost:5001/api/PunchListItem`)
+    setData(resp.data)
+    console.log(data)
   }
 
   useEffect(() => {
@@ -19,8 +17,35 @@ const CurrentList = props => {
   }, [])
 
   return (
-    <>
-      <main>
+    <div>
+      {data.map(item => {
+        return (
+          <div>
+            <div>
+              <Link to={`/active/${item}`}>
+                <List
+                  facilityId={item.facilityId}
+                  buildingId={item.buildingId}
+                  scopeId={item.scopeId}
+                  assignId={item.assignId}
+                  facilityName={item.facility.facilityName}
+                  buildingName={item.buildingName}
+                  description={item.description}
+                  assignRole={item.assignRole}
+                  issueLocation={item.issueLocation}
+                  issue={item.issue}
+                  status={item.status}
+                />
+              </Link>
+            </div>
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+{
+  /*      
         <table id="active-list">
           <caption>Active Punchlist</caption>
 
@@ -87,10 +112,14 @@ const CurrentList = props => {
             </tr>
           </tbody>
         </table>
-        {/* <button onClick={getActiveList}>Search</button> */}
-      </main>
-    </>
-  )
+        <br></br>
+        test
+        <list
+          facilityId={activeList.facilityId}
+          buildingId={activeList.buildingId}
+          scopeId={activeList.scopeId}
+          assignId={activeList.assignId}
+        /> */
 }
 
-export default CurrentList
+export default ActiveList

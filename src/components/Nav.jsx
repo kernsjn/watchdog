@@ -14,6 +14,9 @@ const Nav = () => {
         </header>
         <ul>
           <li className="nav">
+            <Link to="/active">Active List</Link>
+          </li>
+          <li className="nav">
             <Link to="/punchlist">Add Item</Link>
           </li>
           <li className="nav">
