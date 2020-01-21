@@ -23,9 +23,17 @@ select {
 
 caption {
   background: goldenrod;
-  padding: 1rem;
   font-size: 1.5rem;
-  text-transform: capitalize;
+
+  /* border-top-right-radius: 20%;
+  border-top-left-radius: 20%; */
+}
+
+caption a {
+  font-size: 1rem;
+  flex-wrap: nowrap;
+  /* border-top-right-radius: 20%;
+  border-top-left-radius: 20%; */
 }
 
 header {

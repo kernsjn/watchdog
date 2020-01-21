@@ -7,9 +7,10 @@ import CurrentList from '../components/CurrentList'
 import ProgressBar from '../components/ProgressBar'
 import axios from 'axios'
 
-const Dashboard = () => {
+const Dashboard = props => {
   const [selectedFacility, setSelectedFacility] = useState()
-  const [data, setData] = useState()
+  const [data, setData] = useState({})
+  const [punchlistItems, setPunchlistItems] = useState([])
 
   const getOneFacility = async () => {
     const resp = await axios.get(`https://localhost:5001/api/Facility`)
@@ -20,11 +21,19 @@ const Dashboard = () => {
     getOneFacility()
   }, [])
 
+  const filteredItems = async () => {
+    console.log({ data })
+    if (data.facilityId && data.buildingId && data.scopeId && data.assignId) {
+      const resp = await axios.get(
+        `https://localhost:5001/api/PunchListItem/list?facilityId=${data.facilityId}&buildingId=${data.buildingId}&scopeId=${data.scopeId}&assignId=${data.assignId}`
+      )
+      console.log('here', resp.data)
+      setPunchlistItems(resp.data)
+    }
+  }
   useEffect(() => {
-    // when all 4 ids have been set, make an API to your /list endpoint withe 4 ids
-    // const resp = await axios.get(`https://localhost:5001/api/PunchListItem/list?facilityId=${facility}&buidingId=${buildingId}`)
-  }, [data])
-
+    filteredItems()
+  }, [data.facilityId, data.buildingId, data.scopeId, data.assignId])
 
   return (
     <>
@@ -83,7 +92,7 @@ const Dashboard = () => {
           </li>
         </ul>
       </section>
-      <CurrentList />
+      <CurrentList punchlistItems={punchlistItems} />
     </>
   )
 }

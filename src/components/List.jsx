@@ -2,18 +2,21 @@ import React from 'react'
 
 const List = props => {
   return (
-    <div className="work-items-all">
+    <div>
       <p>
-        Facility: {props.facilityId} | {props.facilityName}
+        {props.Id}
       </p>
       <p>
-        Building: {props.buildingId} | {props.buildingName}
+        {props.facilityName}
       </p>
       <p>
-        {props.scopeId} | {props.description}
+        {props.buildingName}
       </p>
       <p>
-        {props.assignId} | {props.assignRole}
+      {props.description}
+      </p>
+      <p>
+        {props.assignId} 
       </p>
       <p>{props.issueLocation}</p>
       <p>{props.issue}</p>

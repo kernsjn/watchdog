@@ -17,109 +17,50 @@ const ActiveList = () => {
   }, [])
 
   return (
-    <div>
-      {data.map(item => {
-        return (
-          <div>
-            <div>
-              <Link to={`/active/${item}`}>
-                <List
-                  facilityId={item.facilityId}
-                  buildingId={item.buildingId}
-                  scopeId={item.scopeId}
-                  assignId={item.assignId}
-                  facilityName={item.facility.facilityName}
-                  buildingName={item.buildingName}
-                  description={item.description}
-                  assignRole={item.assignRole}
-                  issueLocation={item.issueLocation}
-                  issue={item.issue}
-                  status={item.status}
-                />
-              </Link>
-            </div>
-          </div>
-        )
-      })}
-    </div>
-  )
-}
-{
-  /*      
-        <table id="active-list">
-          <caption>Active Punchlist</caption>
+    
+              <>
+                <main>
+                  <table id="active-list">
+                 
+                    <caption>
+                        Active Punchlist Items
+                    </caption>
 
-          <thead>
-            <tr>
-              <th>Facility Name</th>
-              <th>Status</th>
-              <th>Building Name</th>
-              <th>Scope</th>
-              <th>Ball-in-Court</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td
-                type="text"
-                placeholder="Facility"
-                value={activeList}
-                name="facilityId"
-                onChange={e => props.setActiveList(e.target.value)}
-              >
-                Facility Name
-              </td>
-              <td>
-                <select
-                  type="text"
-                  placeholder="Status"
-                  value="status"
-                  onChange={e => props.setActiveList(e.target.value)}
-                >
-                  <option>Pending</option>
-                  <option>Open</option>
-                  <option>In Review</option>
-                  <option>Closed</option>
-                </select>
-              </td>
-              <td
-                type="text"
-                placeholder="Building Name"
-                value={activeList}
-                name="buildingId"
-                onChange={e => props.setActiveList(e.target.value)}
-              >
-                Building Name
-              </td>
-              <td
-                type="text"
-                placeholder="Scope"
-                value={activeList}
-                name="scopeId"
-                onChange={e => props.setActiveList(e.target.value)}
-              >
-                Scope{' '}
-              </td>
-              <td
-                type="text"
-                placeholder="Ball-in-Court"
-                value={activeList}
-                name="assignId"
-                onChange={e => props.setActiveList(e.target.value)}
-              >
-                Ball-in-Court
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <br></br>
-        test
-        <list
-          facilityId={activeList.facilityId}
-          buildingId={activeList.buildingId}
-          scopeId={activeList.scopeId}
-          assignId={activeList.assignId}
-        /> */
-}
+                    <thead>
+                      <tr>
+                        <th>Facility Name</th>
+                        <th>Status</th>
+                        <th>Building Name</th>
+                        <th>Scope</th>
+                        <th>Ball-in-Court</th>
+                      </tr>
+                    </thead>
+                    {data.map(item => {
+        return (
+                    <tbody>
+                      <tr>
+                        <td>
+                          <List facilityName={item.facility.facilityName} />
+                        </td>
+                        <td>
+                          <List status={item.status} />
+                        </td>
+                        <td>
+                          <List buildingName={item.building.buildingName} />
+                        </td>
+                        <td>
+                          <List description={item.scope.description} />
+                        </td>
+                        <td>
+                          <List assignId={item.assignId} />
+                        </td>
+                      </tr>
+                    </tbody>
+                  )})}
+                  </table>
+                </main>
+              </>
+  )
+      }
 
 export default ActiveList

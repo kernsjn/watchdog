@@ -3,19 +3,19 @@ import axios from 'axios'
 import ActiveList from '../pages/ActiveList'
 
 const CurrentList = props => {
-  const [activeList, setActiveList] = useState([])
-  const [searchTerm, setSearchTerm] = useState()
+  // const [activeList, setActiveList] = useState([])
+  // const [searchTerm, setSearchTerm] = useState()
 
-  const getActiveList = async () => {
-    const resp = await axios.get(
-      'https://localhost:5001/api/PunchListItem/list'
-    )
-    setActiveList(resp.activeList)
-    console.log(activeList)
-  }
+  // const getActiveList = async () => {
+  //   const resp = await axios.get(
+  //     'https://localhost:5001/api/PunchListItem/list'
+  //   )
+  //   setActiveList(resp.activeList)
+  //   console.log(activeList)
+  // }
 
   useEffect(() => {
-    getActiveList()
+    console.log(props.punchlistItems)
   }, [])
 
   return (
@@ -34,7 +34,7 @@ const CurrentList = props => {
             </tr>
           </thead>
           <tbody>
-            <tr>
+            {/* <tr>
               <td
                 type="text"
                 placeholder="Facility"
@@ -84,7 +84,7 @@ const CurrentList = props => {
               >
                 Ball-in-Court
               </td>
-            </tr>
+            </tr> */}
           </tbody>
         </table>
         {/* <button onClick={getActiveList}>Search</button> */}
