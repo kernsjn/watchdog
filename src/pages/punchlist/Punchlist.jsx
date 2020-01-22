@@ -7,6 +7,7 @@ import PunchFacility from './PunchFacility'
 import PunchBuilding from './PunchBuilding'
 import PunchScope from './PunchScope'
 import PunchRequestor from './PunchRequestor'
+import Config from '../../components/Config'
 
 const Punchlist = () => {
   const [selectedFacility, setSelectedFacility] = useState()
@@ -34,12 +35,9 @@ const Punchlist = () => {
     }, true)
 
     if (isValid) {
-      const resp = await axios.post(
-        'https://localhost:5001/api/PunchListItem',
-        {
-          ...data,
-        }
-      )
+      const resp = await axios.post(`${Config.API_URL}api/punchListItem`, {
+        ...data,
+      })
       if (resp.status === 201) {
         setPunchId(resp.data.id)
       }
@@ -53,7 +51,7 @@ const Punchlist = () => {
   }, [punchId])
 
   return wasPunchlistCreatedSuccessfully ? (
-    <Redirect to={'/'} />
+    <Redirect to={'/active'} />
   ) : (
     <>
       <main className="form-section">

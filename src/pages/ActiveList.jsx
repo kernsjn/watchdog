@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import List from '../components/List'
 import { Link } from 'react-router-dom'
+import Config from '../components/Config'
 
 const ActiveList = () => {
   const [data, setData] = useState([])
 
   const getActiveList = async () => {
-    const resp = await axios.get(`https://localhost:5001/api/PunchListItem`)
+    const resp = await axios.get(`${Config.API_URL}api/punchListItem`)
     setData(resp.data)
     console.log(data)
   }
@@ -39,12 +40,12 @@ const ActiveList = () => {
             return (
               <tbody>
                 <tr>
-                  
-                    <td><Link to={`/item/${item.id}`}>
+                  <td>
+                    <Link to={`/item/${item.id}`}>
                       <i class="fas fa-clipboard-list fa-3x"></i>
-                      </Link>
-                    </td>
-                  
+                    </Link>
+                  </td>
+
                   <td>
                     <List facilityName={item.facility.facilityName} />
                   </td>

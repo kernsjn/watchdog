@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import Config from './Config'
 
 const Building = props => {
   const [buildingData, setBuildingData] = useState([{}])
 
   const getBuildingData = async () => {
     const resp = await axios.get(
-      'https://localhost:5001/api/Building/' + props.selectedFacility
+      `${Config.API_URL}api/building/` + props.selectedFacility
     )
     setBuildingData(resp.data)
     console.log(resp.data)

@@ -6,6 +6,7 @@ import Assigned from '../components/Assigned'
 import CurrentList from '../components/CurrentList'
 import ProgressBar from '../components/ProgressBar'
 import axios from 'axios'
+import Config from '../components/Config'
 
 const Dashboard = props => {
   const [selectedFacility, setSelectedFacility] = useState()
@@ -13,7 +14,7 @@ const Dashboard = props => {
   const [punchItems, setPunchItems] = useState([])
 
   const getOneFacility = async () => {
-    const resp = await axios.get(`https://localhost:5001/api/Facility`)
+    const resp = await axios.get(`${Config.API_URL}/facility`)
     setSelectedFacility(resp.data)
   }
 
@@ -26,7 +27,7 @@ const Dashboard = props => {
     console.log({ data })
     if (data.facilityId && data.buildingId && data.scopeId && data.assignId) {
       const resp = await axios.get(
-        `https://localhost:5001/api/PunchListItem/list?facilityId=${data.facilityId}&buildingId=${data.buildingId}&scopeId=${data.scopeId}&assignId=${data.assignId}`
+        `${Config.API_URL}api/punchListItem/list?facilityId=${data.facilityId}&buildingId=${data.buildingId}&scopeId=${data.scopeId}&assignId=${data.assignId}`
       )
       console.log('here', resp.data)
       setPunchItems(resp.data)

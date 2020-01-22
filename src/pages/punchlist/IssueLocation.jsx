@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import Config from '../../components/Config'
 
 const IssueLocation = props => {
   const [issueLocationData, setIssueLocationData] = useState([{}])
 
   const getIssueLocationData = async () => {
-    const resp = await axios.get(
-      'https://localhost:5001/api//' + props.selectedFacility
-    )
+    const resp = await axios.get(`${Config.API_URL}api//` + props.selectedFacility)
     setIssueLocationData(resp.data)
     console.log(resp.data)
   }

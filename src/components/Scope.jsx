@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import Config from './Config'
 
 const Scope = props => {
   const [scopeData, setScopeData] = useState([])
 
   const getScopeData = async () => {
-    const resp = await axios.get('https://localhost:5001/api/scope/')
+    const resp = await axios.get(`${Config.API_URL}api/scope`)
     setScopeData(resp.data)
     console.log(resp.data)
   }

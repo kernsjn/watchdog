@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import Config from '../../components/Config'
 
 const PunchFacility = props => {
   const [punchFacilityData, setPunchFacilityData] = useState([{}])
 
   const getPunchFacilityData = async () => {
-    const resp = await axios.get('https://localhost:5001/api/Facility')
+    const resp = await axios.get(`${Config.API_URL}api/facility`)
     setPunchFacilityData(resp.data)
     console.log(resp.data)
   }

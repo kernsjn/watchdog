@@ -16,7 +16,9 @@ const CurrentList = props => {
 
           <thead>
             <tr>
-              
+              <th>
+                <i class="fas fa-clipboard-list"></i>
+              </th>
               <th>Facility Name</th>
               <th>Status</th>
               <th>Building Name</th>
@@ -28,7 +30,11 @@ const CurrentList = props => {
             return (
               <tbody>
                 <tr>
-                  
+                  <td>
+                    <Link to={`/item/${item.id}`}>
+                      <i class="fas fa-clipboard-list fa-3x"></i>
+                    </Link>
+                  </td>
                   <td>{item.facility.facilityName}</td>
                   <td>{item.status} </td>
                   <td>{item.building.buildingName} </td>
