@@ -8,9 +8,7 @@ import PunchBuilding from './PunchBuilding'
 import PunchScope from './PunchScope'
 import PunchRequestor from './PunchRequestor'
 
-
 const Punchlist = () => {
-  // const [resetForm, setResetForm] = useState(false)
   const [selectedFacility, setSelectedFacility] = useState()
   const [data, setData] = useState({})
   const [punchId, setPunchId] = useState()
@@ -57,7 +55,6 @@ const Punchlist = () => {
   return wasPunchlistCreatedSuccessfully ? (
     <Redirect to={'/'} />
   ) : (
-    // <Redirect to={'./activelist/${punchId}'} />
     <>
       <main className="form-section">
         <div className="title">Add a Punchlist Item</div>
@@ -107,11 +104,11 @@ const Punchlist = () => {
 
                 <li>
                   <PunchAssigned
-                    prepPunchAssigned={assignId => {
+                    prepPunchAssigned={assignPersonId => {
                       setData(prev => {
                         return {
                           ...prev,
-                          assignId: parseInt(assignId),
+                          assignPersonId: parseInt(assignPersonId),
                         }
                       })
                     }}

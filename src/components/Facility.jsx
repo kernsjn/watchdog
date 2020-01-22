@@ -25,7 +25,7 @@ const Facility = props => {
               name="facilityName"
               onChange={e => props.setSelectedFacility(e.target.value)}
             >
-              <option value="">SELECT A FACILITY</option>
+              <option value=""></option>
               {facilityData.map((info, id) => {
                 return (
                   <option value={info.id} key={id}>

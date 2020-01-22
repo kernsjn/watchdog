@@ -26,7 +26,7 @@ const Building = props => {
               className="building"
               onChange={e => props.updateBuildingId(e.target.value)}
             >
-              <option value="">SELECT A BUILDING</option>
+              <option value=""></option>
               {buildingData.map((info, id) => {
                 return (
                   <option value={info.id} key={id}>

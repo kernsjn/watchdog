@@ -23,6 +23,7 @@ const Scope = props => {
               className="category"
               onChange={e => props.prepDashScope(e.target.value)}
             >
+              <option value=""></option>
               {scopeData.map((info, id) => {
                 return (
                   <option value={info.id} key={id}>

@@ -24,6 +24,10 @@ select {
 caption {
   background: goldenrod;
   font-size: 1.5rem;
+  padding: 0.75rem;
+  border-top-left-radius: 30%;
+  border-top-right-radius: 30%;
+  border: 1px solid #7d7d7d;
 
   /* border-top-right-radius: 20%;
   border-top-left-radius: 20%; */
@@ -31,7 +35,7 @@ caption {
 
 caption a {
   font-size: 1rem;
-  flex-wrap: nowrap;
+  display: flex;
   /* border-top-right-radius: 20%;
   border-top-left-radius: 20%; */
 }
@@ -156,16 +160,27 @@ nav a {
   margin-right: 10%;
   margin-left: 10%;
   margin-top: 5rem;
+  box-shadow: 0px 4px 16px 0px gray;
 }
 
 #active-list th {
   border: 1px solid #7d7d7d;
-  padding: 8px;
+  font-size: 16px;
+  text-align: center;
+  justify-content: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: navy;
+  color: white;
 }
 
 #active-list td {
   border: 1px solid #cecaca;
+  font-size: 13px;
   padding: 8px;
+  text-align: center;
+  font-weight: lighter;
+  justify-content: center;
 }
 
 #active-list tr:nth-child(even) {
@@ -174,14 +189,6 @@ nav a {
 
 #active-list tr:hover {
   background-color: #ddd;
-}
-
-#active-list th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: navy;
-  color: white;
 }
 
 /* mobile view */
@@ -309,7 +316,7 @@ nav a {
   #active-list th {
     padding-top: 12px;
     padding-bottom: 12px;
-    text-align: left;
+    text-align: center;
     background-color: navy;
     color: white;
   }

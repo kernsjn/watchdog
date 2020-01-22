@@ -23,6 +23,7 @@ const Assigned = props => {
               className="ball-in-court"
               onChange={e => props.prepDashAssigned(e.target.value)}
             >
+              <option value=""></option>
               {assignedData.map((info, id) => {
                 return (
                   <option value={info.id} key={id}>
