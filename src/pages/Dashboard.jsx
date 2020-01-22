@@ -10,7 +10,7 @@ import axios from 'axios'
 const Dashboard = props => {
   const [selectedFacility, setSelectedFacility] = useState()
   const [data, setData] = useState({})
-  const [punchlistItems, setPunchlistItems] = useState([])
+  const [punchItems, setPunchItems] = useState([])
 
   const getOneFacility = async () => {
     const resp = await axios.get(`https://localhost:5001/api/Facility`)
@@ -19,6 +19,7 @@ const Dashboard = props => {
 
   useEffect(() => {
     getOneFacility()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const filteredItems = async () => {
@@ -28,11 +29,12 @@ const Dashboard = props => {
         `https://localhost:5001/api/PunchListItem/list?facilityId=${data.facilityId}&buildingId=${data.buildingId}&scopeId=${data.scopeId}&assignId=${data.assignId}`
       )
       console.log('here', resp.data)
-      setPunchlistItems(resp.data)
+      setPunchItems(resp.data)
     }
   }
   useEffect(() => {
     filteredItems()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data.facilityId, data.buildingId, data.scopeId, data.assignId])
 
   return (
@@ -92,7 +94,7 @@ const Dashboard = props => {
           </li>
         </ul>
       </section>
-      <CurrentList punchlistItems={punchlistItems} />
+      <CurrentList punchItems={punchItems} />
     </>
   )
 }

@@ -13,6 +13,7 @@ const Building = props => {
   }
   useEffect(() => {
     getBuildingData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.selectedFacility])
 
   return (

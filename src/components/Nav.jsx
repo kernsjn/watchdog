@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import watchdog from '../assets/watchdog.png'
 
 const Nav = () => {
@@ -9,7 +9,7 @@ const Nav = () => {
         <header className="navigation-bar">
           {' '}
           <Link to="/">
-            <img id="logo" src={watchdog} />{' '}
+            <img id="logo" alt="watchdog" src={watchdog} />{' '}
           </Link>
         </header>
         <ul>

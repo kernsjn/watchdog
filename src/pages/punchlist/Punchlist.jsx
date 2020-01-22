@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
-import Style from './style.css'
+import './style.css'
 import PunchAssigned from './PunchAssigned'
 import PunchFacility from './PunchFacility'
 import PunchBuilding from './PunchBuilding'
@@ -10,7 +10,7 @@ import PunchRequestor from './PunchRequestor'
 
 
 const Punchlist = () => {
-  const [resetForm, setResetForm] = useState(false)
+  // const [resetForm, setResetForm] = useState(false)
   const [selectedFacility, setSelectedFacility] = useState()
   const [data, setData] = useState({})
   const [punchId, setPunchId] = useState()
@@ -42,7 +42,7 @@ const Punchlist = () => {
           ...data,
         }
       )
-      if (resp.status == 201) {
+      if (resp.status === 201) {
         setPunchId(resp.data.id)
       }
     }

@@ -13,6 +13,7 @@ const PunchBuilding = props => {
   }
   useEffect(() => {
     getPunchBuildingData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.selectedFacility])
 
   return (
