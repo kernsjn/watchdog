@@ -3,6 +3,8 @@ import axios from 'axios'
 import List from '../components/List'
 import { Link } from 'react-router-dom'
 import Config from '../components/Config'
+import Item from './Item'
+// import clip from '../assets/clip.png'
 
 const ActiveList = () => {
   const [data, setData] = useState([])
@@ -21,6 +23,7 @@ const ActiveList = () => {
   return (
     <>
       <main>
+        {/* <img id="clip" alt="board" src={clip} />{' '} */}
         <table id="active-list">
           <caption>Active Punchlist Items</caption>
 
@@ -41,6 +44,7 @@ const ActiveList = () => {
               <tbody>
                 <tr>
                   <td>
+                    
                     <Link to={`/item/${item.id}`}>
                       <i class="fas fa-clipboard-list fa-3x"></i>
                     </Link>

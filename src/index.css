@@ -65,6 +65,14 @@ nav {
   background-size: 100% auto;
 }
 
+/* .one-item-clip {
+  width: 100%;
+  display: flex;
+  background-image: url('./assets/clipboard.png');
+  background-color: rgb(215, 215, 215);
+  background-size: 100% auto;
+} */
+
 nav ul {
   display: flex;
   margin-right: 0.5rem;
