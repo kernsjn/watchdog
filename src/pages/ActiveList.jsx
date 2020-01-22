@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import List from '../components/List'
+import { Link } from 'react-router-dom'
 
 const ActiveList = () => {
   const [data, setData] = useState([])
@@ -24,6 +25,9 @@ const ActiveList = () => {
 
           <thead>
             <tr>
+              <th>
+                <i class="fas fa-clipboard-list"></i>
+              </th>
               <th>Facility Name</th>
               <th>Status</th>
               <th>Building Name</th>
@@ -35,6 +39,12 @@ const ActiveList = () => {
             return (
               <tbody>
                 <tr>
+                  
+                    <td><Link to={`/item/${item.id}`}>
+                      <i class="fas fa-clipboard-list fa-3x"></i>
+                      </Link>
+                    </td>
+                  
                   <td>
                     <List facilityName={item.facility.facilityName} />
                   </td>

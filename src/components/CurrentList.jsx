@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const CurrentList = props => {
   useEffect(() => {
@@ -15,6 +16,7 @@ const CurrentList = props => {
 
           <thead>
             <tr>
+              
               <th>Facility Name</th>
               <th>Status</th>
               <th>Building Name</th>
@@ -26,6 +28,7 @@ const CurrentList = props => {
             return (
               <tbody>
                 <tr>
+                  
                   <td>{item.facility.facilityName}</td>
                   <td>{item.status} </td>
                   <td>{item.building.buildingName} </td>
