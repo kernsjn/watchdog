@@ -7,10 +7,10 @@ const UpdateItem = props => {
     facility: {},
     building: {},
     scope: {},
-    requestor: {}
+    requestor: {},
   })
   const [status, setStatus] = useState()
-  const [assignRole, setAssignRole] = useState()
+  const [assignRole, setAssignRole] = useState([])
   const [resolution, setResolution] = useState()
 
   const fetchItem = async () => {
@@ -22,14 +22,21 @@ const UpdateItem = props => {
     setItemData(resp.data)
   }
 
+  const getPunchAssignedData = async () => {
+    const resp = await axios.get(`${Config.API_URL}api/assignPerson`)
+    setAssignRole(resp.data)
+    console.log(resp.data)
+  }
+
   useEffect(() => {
     fetchItem()
-  }, [])
+    getPunchAssignedData()
+  }, [itemData.assignRole])
 
   const submitItem = async event => {
     event.preventDefault()
     const resp = await axios.put(
-      `${Config.API_URL}api/punchListItem/`,
+      `${Config.API_URL}api/punchListItem/${props.match.params.id}`,
 
       {
         resolution: resolution,
@@ -91,7 +98,7 @@ const UpdateItem = props => {
                 <li>
                   <label>Issue:</label>
                   <input
-                    className="disabled-input-form"
+                    className="disabled-input-form-2"
                     type="textarea"
                     name="issueLocation"
                     value={itemData.issue}
@@ -103,14 +110,26 @@ const UpdateItem = props => {
                   <label>Assigned To:</label>
                   <select
                     className="update-input-form"
-                    type="text"
-                    value={assignRole}
-                    placeholder="Reassign Punchlist Item"
-                    name="assignRole"
                     onChange={e => {
                       setAssignRole(e.target.value)
                     }}
-                  />
+                  >
+                    {assignRole.map((info, id) => {
+                      return (
+                        <option
+                          value={info.id}
+                          key={id}
+                          selected={
+                            info.id === itemData.assignPersonId
+                              ? 'selected'
+                              : ''
+                          }
+                        >
+                          {info.assignRole}
+                        </option>
+                      )
+                    })}
+                  </select>
                 </li>
               </ul>
             </div>
@@ -156,7 +175,7 @@ const UpdateItem = props => {
                   <input
                     className="update-input-form-2"
                     type="text"
-                    value={resolution}
+                    value={itemData.resolution}
                     placeholder="Describe Resolution"
                     name="issue"
                     onChange={e => {
@@ -168,14 +187,33 @@ const UpdateItem = props => {
                   <label>Status:</label>
                   <select
                     className="update-input-form"
-                    type="text"
-                    value={status.s}
-                    placeholder="Current Status"
-                    name="status"
                     onChange={e => {
                       setStatus(e.target.value)
                     }}
-                  />
+                  >
+                    <option
+                      selected={itemData.status === 'Pending' ? 'selected' : ''}
+                    >
+                      Pending
+                    </option>
+                    <option
+                      selected={itemData.status === 'Open' ? 'selected' : ''}
+                    >
+                      Open
+                    </option>
+                    <option
+                      selected={
+                        itemData.status === 'In Review' ? 'selected' : ''
+                      }
+                    >
+                      In Review
+                    </option>
+                    <option
+                    selected={itemData.status === 'Closed' ? 'selected' : ''}
+                    >
+                      Closed
+                    </option>
+                  </select>
                 </li>
 
                 <li className="update-button">
