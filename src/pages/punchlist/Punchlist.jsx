@@ -115,11 +115,11 @@ const Punchlist = () => {
 
                 <li>
                   <PunchRequestor
-                    prepPunchRequestor={requestId => {
+                    prepPunchRequestor={requestorId => {
                       setData(prev => {
                         return {
                           ...prev,
-                          requestId: parseInt(requestId),
+                          requestorId: parseInt(requestorId),
                         }
                       })
                     }}

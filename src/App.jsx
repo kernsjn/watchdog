@@ -4,7 +4,7 @@ import Punchlist from './pages/punchlist/Punchlist'
 import HomePage from './pages/HomePage'
 import Nav from './components/Nav'
 import ActiveList from './pages/ActiveList'
-import Item from './pages/Item'
+import UpdateItem from './pages/UpdateItem'
 
 const App = () => {
   return (
@@ -14,7 +14,7 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={HomePage}></Route>
           <Route exact path="/punchlist" component={Punchlist}></Route>
-          <Route exact path="/item/:id" component={Item}></Route>
+          <Route exact path="/item/:id" component={UpdateItem}></Route>
           <Route exact path="/active" component={ActiveList}></Route>
         </Switch>
       </Router>
