@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Config from '../components/Config'
+import { Redirect } from 'react-router-dom'
 
 const UpdateItem = props => {
   const [itemData, setItemData] = useState({
@@ -9,7 +10,7 @@ const UpdateItem = props => {
     scope: {},
     requestor: {},
   })
-  const [status, setStatus] = useState()
+  const [wasItemUpdatedSuccessfully, setWasItemUpdatedSuccessfully] = useState()
   const [assignRole, setAssignRole] = useState([])
   const [resolution, setResolution] = useState()
 
@@ -39,15 +40,18 @@ const UpdateItem = props => {
       `${Config.API_URL}api/punchListItem/${props.match.params.id}`,
 
       {
-        resolution: resolution,
-        status: status,
-        assignRole: assignRole,
+        ...itemData,
       }
     )
+    if (resp.status === 204) {
+      setWasItemUpdatedSuccessfully(true)
+    }
     console.log(resp.data)
   }
 
-  return (
+  return wasItemUpdatedSuccessfully ? (
+    <Redirect to={'/active'} />
+  ) : (
     <>
       <main className="update-form-section">
         <div className="update-title">Update Punchlist Item</div>
@@ -111,7 +115,13 @@ const UpdateItem = props => {
                   <select
                     className="update-input-form"
                     onChange={e => {
-                      setAssignRole(e.target.value)
+                      e.persist()
+                      setItemData(prev => {
+                        return {
+                          ...prev,
+                          assignPersonId: parseInt(e.target.value),
+                        }
+                      })
                     }}
                   >
                     {assignRole.map((info, id) => {
@@ -188,7 +198,10 @@ const UpdateItem = props => {
                   <select
                     className="update-input-form"
                     onChange={e => {
-                      setStatus(e.target.value)
+                      e.persist()
+                      setItemData(prev => {
+                        return { ...prev, status: e.target.value }
+                      })
                     }}
                   >
                     <option
@@ -202,14 +215,15 @@ const UpdateItem = props => {
                       Open
                     </option>
                     <option
+                      value="InReview"
                       selected={
-                        itemData.status === 'In Review' ? 'selected' : ''
+                        itemData.status === 'InReview' ? 'selected' : ''
                       }
                     >
-                      In Review
+                      Inabbasbbsbsbaannnanan Review
                     </option>
                     <option
-                    selected={itemData.status === 'Closed' ? 'selected' : ''}
+                      selected={itemData.status === 'Closed' ? 'selected' : ''}
                     >
                       Closed
                     </option>

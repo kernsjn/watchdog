@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import List from '../components/List'
+
 import { Link } from 'react-router-dom'
 import Config from '../components/Config'
 import UpdateItem from './UpdateItem'
-// import clip from '../assets/clip.png'
 
 const ActiveList = () => {
   const [data, setData] = useState([])
@@ -50,19 +49,19 @@ const ActiveList = () => {
                   </td>
 
                   <td>
-                    <List facilityName={item.facility.facilityName} />
+                    <p>{item.facility.facilityName}</p>
                   </td>
                   <td>
-                    <List status={item.status} />
+                    <p>{item.status}</p>
                   </td>
                   <td>
-                    <List buildingName={item.building.buildingName} />
+                    <p>{item.building.buildingName}</p>
                   </td>
                   <td>
-                    <List description={item.scope.description} />
+                    <p>{item.scope.description}</p>
                   </td>
                   <td>
-                    <List assignRole={item.assignPerson.assignRole} />
+                    <p>{item.assignPerson.assignRole} </p>
                   </td>
                 </tr>
               </tbody>
