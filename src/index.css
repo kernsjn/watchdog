@@ -227,7 +227,7 @@ nav a {
 .update-title-bar {
   width: 100%;
   height: 1rem;
-  background-color: navy;
+  background-color: rgb(20, 20, 85);
 }
 
 .update-container {
