@@ -40,12 +40,6 @@ caption {
   border-top-left-radius: 20%; */
 }
 
-footer {
-  background-color: navy;
-  background-size: 100% auto;
-  padding: 1rem;
-}
-
 header {
   font-size: 2rem;
   justify-content: space-between;
@@ -60,7 +54,7 @@ nav {
   text-align: right;
   width: 100%;
   display: flex;
-  background-image: url('./assets/watchdog-nav.jpg');
+  background-image: url('./assets/blue-banner.jpg');
   background-size: 100% auto;
 }
 
@@ -100,8 +94,8 @@ nav a {
 }
 
 .nav-line {
-  background-color: navy;
-  padding: 1rem;
+  background-color: rgb(20, 20, 85);
+  padding: 0.5rem;
 }
 
 .container {
@@ -184,7 +178,7 @@ nav a {
   justify-content: center;
   padding-top: 15px;
   padding-bottom: 15px;
-  background-color: navy;
+  background-color: rgb(20, 20, 85);
   color: white;
 }
 
