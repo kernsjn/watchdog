@@ -30,6 +30,7 @@ select {
 caption {
   background: goldenrod;
   font-size: 1.5rem;
+  font-weight: bolder;
   padding: 0.75rem;
   border-top-left-radius: 30%;
   border-top-right-radius: 30%;
@@ -39,11 +40,10 @@ caption {
   border-top-left-radius: 20%; */
 }
 
-caption a {
-  font-size: 1rem;
-  display: flex;
-  /* border-top-right-radius: 20%;
-  border-top-left-radius: 20%; */
+footer {
+  background-color: navy;
+  background-size: 100% auto;
+  padding: 1rem;
 }
 
 header {
@@ -101,7 +101,7 @@ nav a {
 
 .nav-line {
   background-color: navy;
-  padding: 0.5rem;
+  padding: 1rem;
 }
 
 .container {
@@ -221,13 +221,19 @@ nav a {
   font-size: 1.5rem;
   font-weight: bolder;
   display: flex;
-  background-color: rgb(12, 80, 143);
-  color: whitesmoke;
+  background: goldenrod;
+  color: black;
   width: 100%;
   border-top-right-radius: 20%;
   border-top-left-radius: 20%;
   margin-bottom: 0rem;
   justify-content: center;
+}
+
+.update-title-bar {
+  width: 100%;
+  height: 1rem;
+  background-color: navy;
 }
 
 .update-container {
@@ -270,12 +276,11 @@ nav a {
 }
 
 .update-punch-image {
-  height: 9rem;
-  width: 9rem;
+  height: 10rem;
+  width: 10rem;
   text-align: center;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   justify-content: space-between;
-  padding: 1rem;
   border-radius: 75;
   border: solid 1px gray;
   justify-content: center;
@@ -286,12 +291,13 @@ nav a {
   box-shadow: 0px 4px 16px 0px gray;
   margin: auto;
   display: block;
+  flex-direction: column;
 }
 
 .update-image-label {
   text-align: center;
   width: 100%;
-  margin-left: 6rem;
+  margin-left: 8.25rem;
 }
 
 .update-flex-lt {
@@ -304,6 +310,20 @@ nav a {
 
 .disabled-input-form {
   height: 2.5rem;
+  width: 100%;
+  background-color: rgb(206, 206, 206);
+  text-align: center;
+  border: solid 1px gray;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  font-size: 1rem;
+  color: rgb(87, 87, 87);
+  box-shadow: 0px 4px 16px 0px gray;
+}
+
+.disabled-input-form-2 {
+  height: 5.5rem;
   width: 100%;
   background-color: rgb(206, 206, 206);
   text-align: center;
@@ -330,8 +350,9 @@ nav a {
 }
 
 .update-input-form-2 {
-  height: 5.5rem;
+  height: 6.25rem;
   width: 100%;
+  text-align: center;
   border: solid 1px gray;
   justify-content: center;
   align-content: center;
@@ -340,8 +361,6 @@ nav a {
   color: rgb(87, 87, 87);
   box-shadow: 0px 4px 16px 0px gray;
 }
-
-
 
 .update-flex-lt li {
   align-items: center;

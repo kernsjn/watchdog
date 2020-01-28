@@ -27,14 +27,20 @@ body {
   font-size: 1.5rem;
   font-weight: bolder;
   display: flex;
-  background-color: rgb(12, 80, 143);
-  color: whitesmoke;
+  background: goldenrod;
+  color: black;
   width: 1rem;
   width: 850px;
   border-top-right-radius: 20%;
   border-top-left-radius: 20%;
   margin-bottom: 0rem;
   justify-content: center;
+}
+
+.title-bar {
+  width: 100%;
+  height: 1rem;
+  background-color: navy;
 }
 
 .container {
@@ -186,5 +192,3 @@ body {
   letter-spacing: 0.09em;
   border-radius: 2px;
 }
-
-

@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-
 import { Link } from 'react-router-dom'
 import Config from '../components/Config'
-import UpdateItem from './UpdateItem'
 
 const ActiveList = () => {
   const [data, setData] = useState([])
@@ -22,14 +20,13 @@ const ActiveList = () => {
   return (
     <>
       <main>
-        {/* <img id="clip" alt="board" src={clip} />{' '} */}
         <table id="active-list">
           <caption>Active Punchlist Items</caption>
 
           <thead>
             <tr>
               <th>
-                <i class="fas fa-clipboard-list"></i>
+                <i className="fas fa-clipboard-list"></i>
               </th>
               <th>Facility Name</th>
               <th>Status</th>
@@ -41,10 +38,10 @@ const ActiveList = () => {
           {data.map(item => {
             return (
               <tbody>
-                <tr>
+                <tr >
                   <td>
                     <Link to={`/item/${item.id}`}>
-                      <i class="fas fa-clipboard-list fa-3x"></i>
+                      <i className="fas fa-clipboard-list fa-3x"></i>
                     </Link>
                   </td>
 

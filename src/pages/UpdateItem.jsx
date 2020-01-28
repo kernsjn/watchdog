@@ -55,6 +55,7 @@ const UpdateItem = props => {
     <>
       <main className="update-form-section">
         <div className="update-title">Update Punchlist Item</div>
+        <div className="update-title-bar"></div>
         <form className="update-punchlist-item" onSubmit={submitItem}>
           <div className="update-container">
             <div className="update-lt-section">
@@ -103,13 +104,64 @@ const UpdateItem = props => {
                   <label>Issue:</label>
                   <input
                     className="disabled-input-form-2"
-                    type="textarea"
+                    type="text"
                     name="issueLocation"
                     value={itemData.issue}
                     disabled
                   />
                 </li>
 
+                <li>
+                  <label>Requested:</label>
+                  <input
+                    className="disabled-input-form"
+                    type="text"
+                    value={itemData.requestor.requestRole}
+                    name="requestRole"
+                    disabled
+                  />
+                </li>
+              </ul>
+            </div>
+
+            <div className="update-rt-section">
+              <ul className="update-flex-rt">
+                <li className="update-image-list">
+                  {/* <div className="image-row">
+                    <label className="image-label" htmlFor="issue-image">
+                      Issue Image:
+                    </label>
+
+                    <input
+                      className="update-punch-image"
+                      type="text"
+                      placeholder="Upload Image"
+                    /> */}
+
+                  <label className="update-image-label" htmlFor="issue-image">
+                    Update Image:
+                  </label>
+
+                  <input
+                    className="update-punch-image"
+                    type="text"
+                    placeholder="Upload Image"
+                  />
+                  {/* </div> */}
+                </li>
+                <li>
+                  <label>Resolution Notes:</label>
+                  <input
+                    className="update-input-form-2"
+                    type="text"
+                    value={itemData.resolution}
+                    placeholder="Describe Resolution"
+                    name="issue"
+                    onChange={e => {
+                      setResolution(e.target.value)
+                    }}
+                  />
+                </li>
                 <li>
                   <label>Assigned To:</label>
                   <select
@@ -141,58 +193,7 @@ const UpdateItem = props => {
                     })}
                   </select>
                 </li>
-              </ul>
-            </div>
 
-            <div className="update-rt-section">
-              <ul className="update-flex-rt">
-                <li>
-                  <label>Requested:</label>
-                  <input
-                    className="disabled-input-form"
-                    type="text"
-                    value={itemData.requestor.requestRole}
-                    name="requestRole"
-                    disabled
-                  />
-                </li>
-                <li className="update-image-list">
-                  <label className="image-label" htmlFor="issue-image">
-                    Issue Image:
-                  </label>
-                  <br />
-                  <input
-                    className="update-punch-image"
-                    type="text"
-                    placeholder="Upload Image"
-                  />
-                </li>
-
-                <li className="update-image-list">
-                  <label className="image-label" htmlFor="issue-image">
-                    Resolution Image:
-                  </label>
-                  <br />
-                  <input
-                    className="update-punch-image"
-                    type="text"
-                    placeholder="Upload Image"
-                  />
-                </li>
-
-                <li>
-                  <label>Resolution Notes:</label>
-                  <input
-                    className="update-input-form-2"
-                    type="text"
-                    value={itemData.resolution}
-                    placeholder="Describe Resolution"
-                    name="issue"
-                    onChange={e => {
-                      setResolution(e.target.value)
-                    }}
-                  />
-                </li>
                 <li>
                   <label>Status:</label>
                   <select
@@ -216,11 +217,12 @@ const UpdateItem = props => {
                     </option>
                     <option
                       value="InReview"
+                      placeholder="In Review"
                       selected={
                         itemData.status === 'InReview' ? 'selected' : ''
                       }
                     >
-                      Inabbasbbsbsbaannnanan Review
+                      In Review
                     </option>
                     <option
                       selected={itemData.status === 'Closed' ? 'selected' : ''}

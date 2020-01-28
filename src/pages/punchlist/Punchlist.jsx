@@ -56,6 +56,7 @@ const Punchlist = () => {
     <>
       <main className="form-section">
         <div className="title">Add a Punchlist Item</div>
+        <div className="title-bar"></div>
         <form className="add-punchlist-item" onSubmit={submitPunchlist}>
           <div className="container">
             <div className="lt-section">

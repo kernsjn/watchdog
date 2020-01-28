@@ -17,7 +17,7 @@ const CurrentList = props => {
           <thead>
             <tr>
               <th>
-                <i class="fas fa-clipboard-list"></i>
+                <i className="fas fa-clipboard-list"></i>
               </th>
               <th>Facility Name</th>
               <th>Status</th>
@@ -32,7 +32,7 @@ const CurrentList = props => {
                 <tr>
                   <td>
                     <Link to={`/item/${item.id}`}>
-                      <i class="fas fa-clipboard-list fa-3x"></i>
+                      <i className="fas fa-clipboard-list fa-3x"></i>
                     </Link>
                   </td>
                   <td>{item.facility.facilityName}</td>
